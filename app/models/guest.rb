@@ -5,6 +5,10 @@ class Guest < ApplicationRecord
 
   validates :email, presence: true, uniqueness: { case_sensitive: false }
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   def create_phones(phone_number)
 
     if phone_number.is_a? Array

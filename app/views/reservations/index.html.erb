@@ -1,0 +1,113 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Reservations</h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body table-responsive p-0">
+
+            <table class="table table-hover text-nowrap">
+              <thead>
+                <tr>
+                  <th>Dates</th>
+                  <th>Details</th>
+                  <th>Prices</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @reservations.each do |reservation| %>
+                  <tr>
+                    <td>
+                      <dl class="row mb-0">
+                        <dt class="col-sm-3">Start</dt>
+                        <dd class="col-sm-9 m-0"><%= reservation.start_date %></dd>
+                      </dl>
+                      <dl class="row mb-0">
+                        <dt class="col-sm-3">End</dt>
+                        <dd class="col-sm-9 m-0"><%= reservation.end_date %></dd>
+                      </dl>
+                      <dl class="row mt-2 mb-0">
+                        <dt class="col-sm-3">Nights</dt>
+                        <dd class="col-sm-9 m-0"><%= reservation.nights_count %></dd>
+                      </dl>
+                    </td>
+                    <td>
+                      <dl class="row mb-0">
+                        <dt class="col-sm-3">Source</dt>
+                        <dd class="col-sm-9 m-0"><%= reservation.source %></dd>
+                      </dl>
+
+                      <dl class="row mt-2 mb-0">
+                        <dt class="col-sm-3">Name</dt>
+                        <dd class="col-sm-9 m-0"><%= reservation.guest.full_name %></dd>
+                      </dl>
+                      <dl class="row mb-0">
+                        <dt class="col-sm-3">Email</dt>
+                        <dd class="col-sm-9 m-0"><%= reservation.guest.email %></dd>
+                      </dl>
+                      <dl class="row mb-0">
+                        <dt class="col-sm-3">Phones</dt>
+                        <dd class="col-sm-9 m-0"><%= reservation.guest.phones.pluck(:phone_number).join(', ') %></dd>
+                      </dl>
+
+                      <dl class="row mt-2 mb-0">
+                        <dt class="col-sm-3">Description</dt>
+                        <dd class="col-sm-9 m-0"><%= reservation.description %></dd>
+                      </dl>
+
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <b>Guests:</b> <%= reservation.guests_count %><br/>
+                        </div>
+                        <div class="col-sm-3">
+                          <b>Adults:</b> <%= reservation.adults_count %><br/>
+                        </div>
+                        <div class="col-sm-3">
+                          <b>Children:</b> <%= reservation.children_count %><br/>
+                        </div>
+                        <div class="col-sm-3">
+                          <b>Infants:</b> <%= reservation.infants_count %><br/>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <dl class="row mb-0">
+                        <dt class="col-sm-3">Payout</dt>
+                        <dd class="col-sm-9 m-0"><%= reservation.currency %> <%= reservation.payout_price %></dd>
+                      </dl>
+                      <dl class="row mb-0">
+                        <dt class="col-sm-3">Security</dt>
+                        <dd class="col-sm-9 m-0"><%= reservation.currency %> <%= reservation.security_price %></dd>
+                      </dl>
+                      <dl class="row mb-0">
+                        <dt class="col-sm-3">Total Paid</dt>
+                        <dd class="col-sm-9 m-0"><%= reservation.currency %> <%= reservation.total_price %></dd>
+                      </dl>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+      </div>
+    </div>
+    <!-- /.row -->
+  </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
