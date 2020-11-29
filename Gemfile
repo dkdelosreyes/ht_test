@@ -34,8 +34,8 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails' # Enable pry in console automatically
-
   gem "better_errors"
+  gem 'rspec-rails'
 end
 
 group :development do

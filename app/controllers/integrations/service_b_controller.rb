@@ -22,7 +22,7 @@ class Integrations::ServiceBController < Integrations::BaseController
         reservation = guest.reservations.service_b.new parsed_reservation
 
         if reservation.save
-          render json: { message: 'success' }, status: :ok
+          head :created
         else
           render json: { error: reservation.errors.full_messages.join(', ') }, status: :unprocessable_entity
         end
