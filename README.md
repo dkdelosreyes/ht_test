@@ -1,24 +1,57 @@
-# README
+# Hometime Test
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Approach
 
-Things you may want to cover:
+For this test scenario, I created an endpoint for each given payload format. The two varying payloads are assumed to be coming from 2 different services that this test app integrates. 
 
-* Ruby version
+For brevity, I named the source of 1st payload as `Service A` and the 2nd payload source as 'Service B'.
 
-* System dependencies
+The 2 payload
 
-* Configuration
+## Setup
 
-* Database creation
+### Install
 
-* Database initialization
+```bash
+bundle install
+yarn install
+rails db:migrate
+```
 
-* How to run the test suite
+### Run the app
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+rails s
+```
 
-* Deployment instructions
+## Accessing the endpoints
 
-* ...
+### Service Payload Format 1
+
+To send the 1st payload format, send a POST request to the endpoint below.
+
+`POST http://localhost:3000/integrations/service_a/`
+
+Successful request will return a status of `201 Created`.
+
+### Service Payload Format 2
+
+To send the 2nd payload format, send a POST request to the endpoint below:
+
+`POST http://localhost:3000/integrations/service_b/`
+
+Successful request will return a status of `201 Created`.
+
+## Viewing the Reservations
+
+To have a quick skeletal preview of the reservations data, access this link [http://localhost:3000](http://localhost:3000).
+
+## Tests
+
+This example uses [RSpec](http://rspec.info) for tests.
+
+To execute all of the test specs, run the following command at the root folder.
+
+```bash
+rspec
+```
