@@ -31,15 +31,11 @@ bundle install
 
 ##### 3. Run database migrations
 
-Run the following commands to create and setup the database.
-
 ```bash
 rails db:migrate
 ```
 
 ##### 4. Start the Rails server
-
-You can start the rails server using the command given below.
 
 ```bash
 rails s
