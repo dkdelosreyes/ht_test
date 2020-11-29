@@ -44,11 +44,6 @@
                       </dl>
                     </td>
                     <td>
-                      <dl class="row mb-0">
-                        <dt class="col-sm-3">Source</dt>
-                        <dd class="col-sm-9 m-0"><%= reservation.source %></dd>
-                      </dl>
-
                       <dl class="row mt-2 mb-0">
                         <dt class="col-sm-3">Name</dt>
                         <dd class="col-sm-9 m-0"><%= reservation.guest.full_name %></dd>
@@ -94,6 +89,10 @@
                       <dl class="row mb-0">
                         <dt class="col-sm-3">Total Paid</dt>
                         <dd class="col-sm-9 m-0"><%= reservation.currency %> <%= reservation.total_price %></dd>
+                      </dl>
+                      <dl class="row mt-2 mb-0">
+                        <dt class="col-sm-3">Status</dt>
+                        <dd class="col-sm-9 m-0"><%= reservation.status %></dd>
                       </dl>
                     </td>
                   </tr>
